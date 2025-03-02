@@ -20,13 +20,13 @@ class HeadDetector:
     # Fixed path to the ONNX model (adjust as needed)
     DEFAULT_MODEL_PATH = 'head_model_640.onnx'
 
-    def __init__(self, onnx_model_path=DEFAULT_MODEL_PATH, confidence_threshold=0.4):
+    def __init__(self, onnx_model_path=DEFAULT_MODEL_PATH, confidence_threshold=0.2):
         """
         Initialize the HeadDetector with a model path and detection threshold.
 
         Args:
             onnx_model_path (str): Path to the ONNX model file. Defaults to 'model.onnx'.
-            confidence_threshold (float): Detection confidence threshold. Defaults to 0.4.
+            confidence_threshold (float): Detection confidence threshold. Defaults to 0.2.
         """
         self.sess = ort.InferenceSession(onnx_model_path)
         self.confidence_threshold = confidence_threshold
@@ -174,7 +174,7 @@ class HeadDetector:
 
 if __name__ == '__main__':
     detector = HeadDetector()
-    image = Image.open("examples/people.jpg").convert('RGB')
-    boxes, scores = detector.detect(image, confidence_threshold=0.1)
-    blurred_image = detector.blur_heads(image, boxes, padding_factor=0.2, blur_factor=20)
+    image = Image.open("examples/people3.jpg").convert('RGB')
+    boxes, scores = detector.detect(image, confidence_threshold=0.2)
+    blurred_image = detector.blur_heads(image, boxes, padding_factor=0.1, blur_factor=20)
     blurred_image.save("output_blurred.jpg")

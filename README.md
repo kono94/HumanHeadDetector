@@ -10,16 +10,51 @@
 - Lightweight with minimal dependencies.
 
 ## Examples
-Original: <br> 
-<img src="examples/people.jpg" width="500"/>
+The following examples show the original images alongside their blurred versions after head detection with `HeadDetector`.
 
-Blurred: <br>
-<img src="examples/people_blurred.jpg" width="500"/>
+<div style="margin-bottom: 0 auto;">
+  <div style="display: inline-block; margin-right: 20px;">
+    <p>Original:</p>
+    <img src="examples/people.jpg" width="300"/>
+  </div>
+  <div style="display: inline-block;">
+    <p>Blurred:</p>
+    <img src="examples/people_blurred.jpg" width="300"/>
+  </div>
+</div>
 
-<img src="examples/people2.jpg"  width="500"/>
+<div style="margin-bottom: 20px;">
+  <div style="display: inline-block; margin-right: 20px;">
+    <p>Original:</p>
+    <img src="examples/people2.jpg" width="300"/>
+  </div>
+  <div style="display: inline-block;">
+    <p>Blurred:</p>
+    <img src="examples/people2_blurred.jpg" width="300"/>
+  </div>
+</div>
 
-Blurred: <br>
-<img src="examples/people2_blurred.jpg" width="500"/>
+<div style="margin-bottom: 20px;">
+  <div style="display: inline-block; margin-right: 20px;">
+    <p>Original:</p>
+    <img src="examples/people3.jpg" width="300"/>
+  </div>
+  <div style="display: inline-block;">
+    <p>Blurred:</p>
+    <img src="examples/people3_blurred.jpg" width="300"/>
+  </div>
+</div>
+
+<div style="margin-bottom: 20px;">
+  <div style="display: inline-block; margin-right: 20px;">
+    <p>Original:</p>
+    <img src="examples/people4.jpg" width="300"/>
+  </div>
+  <div style="display: inline-block;">
+    <p>Blurred:</p>
+    <img src="examples/people4_blurred.jpg" width="300"/>
+  </div>
+</div>
 
 ## Requirements
 This project requires Python 3.6+ and the following dependencies (listed in `requirements.txt`):
