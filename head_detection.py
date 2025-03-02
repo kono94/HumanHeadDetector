@@ -93,12 +93,11 @@ class HeadDetector:
         )
 
         # Unpack detection results (output should be NumPy arrays from onnxruntime)
-        labels, boxes, scores = output
+        _, boxes, scores = output
 
         # Filter detections based on threshold
         scr = scores[0]  # Single image, so take the first batch
         mask = scr > (confidence_threshold if confidence_threshold is not None else self.confidence_threshold)
-        lab = labels[0][mask]
         box = boxes[0][mask]
         scr = scr[mask]
 
@@ -106,7 +105,7 @@ class HeadDetector:
             processed_image = self.blur_heads(im_pil, box)
             processed_image.save(output_image_path)
 
-        return lab, box, scr
+        return box, scr
 
     def draw_image(self, image, labels, boxes):
         """
@@ -176,6 +175,6 @@ class HeadDetector:
 if __name__ == '__main__':
     detector = HeadDetector()
     image = Image.open("examples/people.jpg").convert('RGB')
-    labels, boxes, scores = detector.detect(image, confidence_threshold=0.1)
+    boxes, scores = detector.detect(image, confidence_threshold=0.1)
     blurred_image = detector.blur_heads(image, boxes, padding_factor=0.2, blur_factor=20)
     blurred_image.save("output_blurred.jpg")

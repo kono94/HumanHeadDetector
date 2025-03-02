@@ -1,6 +1,6 @@
 # HeadDetector: Simple Head Detection with ONNX
 
-**HumanHeadDetector** is a lightweight Python module for detecting heads in images using a pre-trained ONNX model. It provides a simple `HeadDetector` class that can locate heads in an image and optionally blur the detected regions for privacy purposes. The module is designed to be easy to use, requiring minimal setup. It is based on **RT-DETRv2**.
+**HumanHeadDetector** is a lightweight Python module for detecting heads in images using a pre-trained ONNX model. It provides a simple `HeadDetector` class that can locate heads in an image and optionally blur the detected regions for privacy purposes. The module is designed to be easy to use, requiring minimal setup and only using `onnxruntime` and `Pillow` as main dependencies. It is based on **RT-DETRv2**.
 
 ## Features
 - Detect heads in images using a pre-trained ONNX model.
@@ -23,8 +23,6 @@ Blurred: <br>
 
 ## Requirements
 This project requires Python 3.6+ and the following dependencies (listed in `requirements.txt`):
-- `torch` (for tensor operations)
-- `torchvision` (for image preprocessing transforms)
 - `onnxruntime` (for ONNX model inference)
 - `Pillow` (PIL fork, for image handling and processing)
 
@@ -71,8 +69,7 @@ from head_detector import HeadDetector
 detector = HeadDetector()
 
 # Detect heads in an image (provide path or PIL Image)
-labels, boxes, scores = detector.detect("path/to/image.jpg")
-print("Labels:", labels)
+boxes, scores = detector.detect("path/to/image.jpg")
 print("Boxes:", boxes)
 print("Scores:", scores)
 ```
@@ -90,7 +87,7 @@ detector = HeadDetector()
 image = Image.open("people.jpg").convert('RGB')
 
 # Detect heads
-labels, boxes, scores = detector.detect(image)
+boxes, scores = detector.detect(image)
 
 # Blur detected heads and save the result
 blurred_image = detector.blur_heads(image, boxes, padding_factor=0.2, blur_factor=20)
