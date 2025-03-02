@@ -99,7 +99,7 @@ blurred_image.save("output_blurred.jpg")
 
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the Apache-2.0 License. See the LICENSE file for details.
 
 ## Contact
 For questions or issues, please open an issue on GitHub.
