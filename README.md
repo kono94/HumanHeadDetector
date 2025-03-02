@@ -11,50 +11,14 @@
 
 ## Examples
 The following examples show the original images alongside their blurred versions after head detection with `HeadDetector`.
+The following examples show the original images alongside their blurred versions after head detection with `HeadDetector`.
 
-<div style="margin-bottom: 0 auto;">
-  <div style="display: inline-block; margin-right: 20px;">
-    <p>Original:</p>
-    <img src="examples/people.jpg" width="300"/>
-  </div>
-  <div style="display: inline-block;">
-    <p>Blurred:</p>
-    <img src="examples/people_blurred.jpg" width="300"/>
-  </div>
-</div>
-
-<div style="margin-bottom: 20px;">
-  <div style="display: inline-block; margin-right: 20px;">
-    <p>Original:</p>
-    <img src="examples/people2.jpg" width="300"/>
-  </div>
-  <div style="display: inline-block;">
-    <p>Blurred:</p>
-    <img src="examples/people2_blurred.jpg" width="300"/>
-  </div>
-</div>
-
-<div style="margin-bottom: 20px;">
-  <div style="display: inline-block; margin-right: 20px;">
-    <p>Original:</p>
-    <img src="examples/people3.jpg" width="300"/>
-  </div>
-  <div style="display: inline-block;">
-    <p>Blurred:</p>
-    <img src="examples/people3_blurred.jpg" width="300"/>
-  </div>
-</div>
-
-<div style="margin-bottom: 20px;">
-  <div style="display: inline-block; margin-right: 20px;">
-    <p>Original:</p>
-    <img src="examples/people4.jpg" width="300"/>
-  </div>
-  <div style="display: inline-block;">
-    <p>Blurred:</p>
-    <img src="examples/people4_blurred.jpg" width="300"/>
-  </div>
-</div>
+| Original                                  | Blurred                                   |
+|-------------------------------------------|-------------------------------------------|
+| ![Original Image 1](examples/people.jpg?raw=true&width=300) | ![Blurred Image 1](examples/people_blurred.jpg?raw=true&width=300) |
+| ![Original Image 2](examples/people2.jpg?raw=true&width=300) | ![Blurred Image 2](examples/people2_blurred.jpg?raw=true&width=300) |
+| ![Original Image 3](examples/people3.jpg?raw=true&width=300) | ![Blurred Image 3](examples/people3_blurred.jpg?raw=true&width=300) |
+| ![Original Image 4](examples/people4.jpg?raw=true&width=300) | ![Blurred Image 4](examples/people4_blurred.jpg?raw=true&width=300) |
 
 ## Requirements
 This project requires Python 3.6+ and the following dependencies (listed in `requirements.txt`):
