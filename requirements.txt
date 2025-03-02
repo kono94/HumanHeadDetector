@@ -1,0 +1,2 @@
+onnxruntime==1.20.1
+pillow==11.1.0
