@@ -1,6 +1,6 @@
 # HeadDetector: Simple Head Detection with ONNX
 
-**HeadDetector** is a lightweight Python module for detecting heads in images using a pre-trained ONNX model. It provides a simple `HeadDetector` class that can locate heads in an image and optionally blur the detected regions for privacy purposes. The module is designed to be easy to use, requiring minimal setup. It is based on **RT-DETRv2**.
+**HumanHeadDetector** is a lightweight Python module for detecting heads in images using a pre-trained ONNX model. It provides a simple `HeadDetector` class that can locate heads in an image and optionally blur the detected regions for privacy purposes. The module is designed to be easy to use, requiring minimal setup. It is based on **RT-DETRv2**.
 
 ## Features
 - Detect heads in images using a pre-trained ONNX model.
