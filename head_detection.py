@@ -175,7 +175,7 @@ class HeadDetector:
 
 if __name__ == '__main__':
     detector = HeadDetector()
-    image = Image.open("examples/people2.jpg").convert('RGB')
-    labels, boxes, scores = detector.detect(image, confidence_threshold=0.2)
+    image = Image.open("examples/people.jpg").convert('RGB')
+    labels, boxes, scores = detector.detect(image, confidence_threshold=0.1)
     blurred_image = detector.blur_heads(image, boxes, padding_factor=0.2, blur_factor=20)
-    blurred_image.save("output_blurred2.jpg")
+    blurred_image.save("output_blurred.jpg")
