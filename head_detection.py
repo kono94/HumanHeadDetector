@@ -125,9 +125,10 @@ class HeadDetector:
             draw.text((b[0], b[1]), text=str(int(l)), fill='blue')  # Convert label to int
         return image
 
+
     def blur_heads(self, image, boxes, padding_factor=0.1, blur_factor=15):
         """
-        Blur the head regions in the image with added padding around each bounding box.
+        Blur the head regions in the image using elliptical regions, handling overlaps correctly.
 
         Args:
             image (PIL.Image): The input image.
@@ -136,8 +137,14 @@ class HeadDetector:
             blur_factor (float): Radius for Gaussian blur (default 15).
 
         Returns:
-            PIL.Image: The image with blurred head regions including padding.
+            PIL.Image: The image with blurred head regions using ellipses.
         """
+        # Create a copy of the image and a full-size mask
+        result_image = image.copy()
+        mask = Image.new('L', image.size, 0)  # Black mask (no blur by default)
+        draw = ImageDraw.Draw(mask)
+
+        # Step 1: Draw all ellipses onto the mask
         for box in boxes:
             x1, y1, x2, y2 = box
 
@@ -147,6 +154,7 @@ class HeadDetector:
             pad_width = padding_factor * width
             pad_height = padding_factor * height
 
+            # Calculate new coordinates with padding
             x1_new = max(0, x1 - pad_width)
             y1_new = max(0, y1 - pad_height)
             x2_new = min(image.width, x2 + pad_width)
@@ -161,20 +169,19 @@ class HeadDetector:
             if left >= right or upper >= lower:
                 continue
 
-            # Crop the expanded region
-            region = image.crop((left, upper, right, lower))
+            draw.ellipse([left, upper, right, lower], fill=255)  # White where blur is applied
 
-            # Apply Gaussian blur
-            blurred_region = region.filter(ImageFilter.GaussianBlur(radius=blur_factor))
+        # Step 2: Apply blur to the entire image
+        blurred_image = image.filter(ImageFilter.GaussianBlur(radius=blur_factor))
 
-            # Paste the blurred region back
-            image.paste(blurred_region, (left, upper))
+        # Step 3: Composite the blurred and original images using the mask
+        result_image = Image.composite(blurred_image, image, mask)
 
-        return image
-
+        return result_image
+    
 if __name__ == '__main__':
     detector = HeadDetector()
-    image = Image.open("examples/people3.jpg").convert('RGB')
-    boxes, scores = detector.detect(image, confidence_threshold=0.2)
-    blurred_image = detector.blur_heads(image, boxes, padding_factor=0.1, blur_factor=20)
+    image = Image.open("examples/people4.jpg").convert('RGB')
+    boxes, scores = detector.detect(image, confidence_threshold=0.1)
+    blurred_image = detector.blur_heads(image, boxes, padding_factor=0.075, blur_factor=20)
     blurred_image.save("output_blurred.jpg")
