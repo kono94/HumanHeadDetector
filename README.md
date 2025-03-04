@@ -52,9 +52,6 @@ Install the required packages using `requirements.txt`:
 pip install -r requirements.txt
 ```
 
-### 4. Request the ONNX Model
-The ONNX model (`head_model_640.onnx`) is not included in this repository. To obtain the pre-trained model, please send a request email to jan.loewenstrom@gmail.com with the subject "HeadDetector Model Request". The model file will be shared with you promptly. Once received, place the head_model_640.onnx file in the root directory of the project. Alternatively, specify a custom path when initializing HeadDetector (see below).
-
 ## Usage
 The `HeadDetector` class provides a simple API for detecting heads in images and optionally blurring the detected regions. Here are some examples:
 
